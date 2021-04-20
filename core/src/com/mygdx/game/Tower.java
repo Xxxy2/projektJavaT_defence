@@ -1,22 +1,33 @@
 package com.mygdx.game;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.GridPoint2;
 
 public class Tower {
+    private int dmg;
+    private float RoF;
+    public int cost;
+    Texture dzialo;
+
+
     private TextureRegion pieceImg;
     private GridPoint2 positionOnScreen;
     private GridPoint2 positionInPuzzle;
-    Tower(
-            TextureRegion pieceImg,
-            GridPoint2 positionOnScreen,
-            GridPoint2 positionInPuzzle) {
-        this.pieceImg = pieceImg;
-        this.positionOnScreen = new GridPoint2(positionOnScreen);
-        this.positionInPuzzle = new GridPoint2(positionInPuzzle);
+    public Tower() {
+        dzialo = new Texture("dzialo.jpg");
     }
+          //  TextureRegion pieceImg,
+           // GridPoint2 positionOnScreen,
+          //  GridPoint2 positionInPuzzle) {
+      //  this.pieceImg = pieceImg;
+       // this.positionOnScreen = new GridPoint2(positionOnScreen);
+       // this.positionInPuzzle = new GridPoint2(positionInPuzzle);
+
     void draw(SpriteBatch batch) {
-        batch.draw(pieceImg, positionOnScreen.x, positionOnScreen.y);
+
+        batch.draw(dzialo, 10, 10);
+        //batch.draw(pieceImg, positionOnScreen.x, positionOnScreen.y);
     }
     boolean isMouseIn(GridPoint2 mousePos) {
         return

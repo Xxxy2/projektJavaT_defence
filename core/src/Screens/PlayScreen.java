@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.mygdx.game.BaseEnemy;
 import com.mygdx.game.MyGame;
 
 public class PlayScreen implements Screen {
@@ -16,6 +17,7 @@ public class PlayScreen implements Screen {
     private Viewport gameport;
     private Hud hud;
 
+    BaseEnemy enemy = new BaseEnemy();
     public PlayScreen(MyGame game){
         this.game = game;
 gamecam = new OrthographicCamera();
@@ -32,7 +34,8 @@ hud = new Hud(game.batch);
     public void render(float delta) {
         Gdx.gl.glClearColor(0.741f, 0.874f, 0.976f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        //game.batch.setProjectionMatrix(gamecam.combined);
+
+
 
 
 game.batch.setProjectionMatrix(hud.stage.getCamera().combined);

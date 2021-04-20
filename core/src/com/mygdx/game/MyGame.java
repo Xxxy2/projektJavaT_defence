@@ -25,16 +25,20 @@ public class MyGame extends Game {
 
 	int x=50;
 	int y=50;
+	private BaseEnemy enemy;
+	private Tower tower;
+
 	@Override
 	public void create () {
 
-
-
+tower = new Tower();
+enemy = new BaseEnemy();
 		batch = new SpriteBatch();
-		dzialo = new Texture("dzialo.jpg");
-		img = new Texture("badlogic.jpg");
-		//duch = new Texture("duszek.png");
+	//	dzialo = new Texture("dzialo.jpg");
+	//	img = new Texture("badlogic.jpg");
+	//	duszek = new Texture("duszek.png");
 
+	//enemy = new BaseEnemy();
 		setScreen( new PlayScreen(this));
 	}
 
@@ -43,23 +47,27 @@ public class MyGame extends Game {
 
 		super.render();
 
-/*
+
 		System.out.println(Gdx.graphics.getDeltaTime());
 		speed = speed + SPEED * Gdx.graphics.getDeltaTime();
-		Gdx.gl.glClearColor(0.741f, 0.874f, 0.976f, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+	//	Gdx.gl.glClearColor(0.741f, 0.874f, 0.976f, 1);
+	//	Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
-batch.draw(dzialo,50,100);
-	//	batch.draw(duch, speed, speed);
+	//batch.draw(dzialo,350,100);
+		//batch.draw(dzialo, speed, speed);
+		enemy.draw(batch);
+		tower.draw(batch);
+
 		//batch.draw(img, 0, 0);
 		batch.end();
 
- */
+
 	}
 	@Override
 	public void dispose () {
 		batch.dispose();
 		img.dispose();
+		dzialo.dispose();
 	}
 	private void handleMouse() {
 		// implementacja obslugi myszki
