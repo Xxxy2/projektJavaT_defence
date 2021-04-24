@@ -22,6 +22,9 @@ private Viewport viewport;
 private Integer mobCounter;
 private  Integer score;
 private  Integer money;
+private float iloscZycia;
+
+private MyGame ggame;
 
 Label mobCounterLabel;
 Label scoreValueLabel;
@@ -31,10 +34,10 @@ Label mobLeft;
 Label moneyLeft;
 
 public Hud(SpriteBatch sb){
-    mobCounter = 10;
+    ggame = new MyGame();
+    mobCounter = ggame.enemies.size();
     score = 0;
     money = 100;
-
     viewport = new FitViewport(MyGame.V_WIDTH,MyGame.V_HEIGHT,new OrthographicCamera());
     stage = new Stage(viewport,sb);
     Table table = new Table();
@@ -43,19 +46,52 @@ public Hud(SpriteBatch sb){
     mobCounterLabel = new Label(String.format("%02d", mobCounter), new Label.LabelStyle(new BitmapFont(), Color.GREEN));
     scoreValueLabel = new Label(String.format("%06d", score),new Label.LabelStyle(new BitmapFont(), Color.GREEN));
     moneyValueLabel = new Label(String.format("%06d", money),new Label.LabelStyle(new BitmapFont(), Color.GREEN));
+
     scoreLabel = new Label("wynik to:",new Label.LabelStyle(new BitmapFont(), Color.GREEN));
     mobLeft = new Label("pozostalo przeciwnikow :",new Label.LabelStyle(new BitmapFont(), Color.GREEN));
     moneyLeft = new Label("pozostalo kasy :",new Label.LabelStyle(new BitmapFont(), Color.GREEN));
+
     table.add( scoreLabel).expandX().padTop(10);
     table.add( moneyLeft).expandX().padTop(10);
     table.add( mobLeft).expandX().padTop(10);
+
     table.row();
+
     table.add( scoreValueLabel).expandX();
     table.add( moneyValueLabel).expandX();
     table.add( mobCounterLabel).expandX();
 
     stage.addActor(table);
+}
 
+
+
+public void AktualizujTekst(SpriteBatch sb)
+{
+    viewport = new FitViewport(MyGame.V_WIDTH,MyGame.V_HEIGHT,new OrthographicCamera());
+    stage = new Stage(viewport,sb);
+    Table table = new Table();
+    table.top();
+    table.setFillParent(true);
+    mobCounterLabel = new Label(String.format("%02d", mobCounter), new Label.LabelStyle(new BitmapFont(), Color.GREEN));
+    scoreValueLabel = new Label(String.format("%06d", score),new Label.LabelStyle(new BitmapFont(), Color.GREEN));
+    moneyValueLabel = new Label(String.format("%06d", money),new Label.LabelStyle(new BitmapFont(), Color.GREEN));
+
+    scoreLabel = new Label("wynik to:",new Label.LabelStyle(new BitmapFont(), Color.GREEN));
+    mobLeft = new Label("pozostalo przeciwnikow :",new Label.LabelStyle(new BitmapFont(), Color.GREEN));
+    moneyLeft = new Label("pozostalo kasy :",new Label.LabelStyle(new BitmapFont(), Color.GREEN));
+
+    table.add( scoreLabel).expandX().padTop(10);
+    table.add( moneyLeft).expandX().padTop(10);
+    table.add( mobLeft).expandX().padTop(10);
+
+    table.row();
+
+    table.add( scoreValueLabel).expandX();
+    table.add( moneyValueLabel).expandX();
+    table.add( mobCounterLabel).expandX();
+
+    stage.addActor(table);
 }
 
 }

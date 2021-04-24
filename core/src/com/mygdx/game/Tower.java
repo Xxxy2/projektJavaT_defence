@@ -15,18 +15,13 @@ public class Tower {
     private GridPoint2 positionOnScreen;
     private GridPoint2 positionInPuzzle;
     public Tower() {
-        dzialo = new Texture("dzialo.jpg");
+        dzialo = new Texture("duszek.png");
     }
-          //  TextureRegion pieceImg,
-           // GridPoint2 positionOnScreen,
-          //  GridPoint2 positionInPuzzle) {
-      //  this.pieceImg = pieceImg;
-       // this.positionOnScreen = new GridPoint2(positionOnScreen);
-       // this.positionInPuzzle = new GridPoint2(positionInPuzzle);
+
 
     void draw(SpriteBatch batch) {
 
-        batch.draw(dzialo, 10, 10);
+        batch.draw(dzialo, 50, 100);
         //batch.draw(pieceImg, positionOnScreen.x, positionOnScreen.y);
     }
     boolean isMouseIn(GridPoint2 mousePos) {

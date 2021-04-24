@@ -9,37 +9,36 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.GridPoint2;
 import com.badlogic.gdx.Input;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MyGame extends Game {
 	public static final int V_WIDTH = 800;
 	public static final int V_HEIGHT = 600;
 	public static SpriteBatch batch;
-	Texture img;
-
-
-
-
-	Texture dzialo;
 	private static int SPEED = 50;
 	private float speed;
 	private GridPoint2 lastMousePosition = new GridPoint2();
 
+	Texture background;
+
 	int x=50;
 	int y=50;
-	private BaseEnemy enemy;
+
+	public List<BaseEnemy> enemies = new ArrayList<BaseEnemy>();
+
+	//private BaseEnemy enemy;
 	private Tower tower;
 
 	@Override
 	public void create () {
 
-tower = new Tower();
-enemy = new BaseEnemy();
-		batch = new SpriteBatch();
-	//	dzialo = new Texture("dzialo.jpg");
-	//	img = new Texture("badlogic.jpg");
-	//	duszek = new Texture("duszek.png");
+		background = new Texture("background.png");
 
-	//enemy = new BaseEnemy();
-		setScreen( new PlayScreen(this));
+	tower = new Tower();
+	batch = new SpriteBatch();
+
+	setScreen( new PlayScreen(this));
 	}
 
 	@Override
@@ -47,28 +46,34 @@ enemy = new BaseEnemy();
 
 		super.render();
 
-
-		System.out.println(Gdx.graphics.getDeltaTime());
-		speed = speed + SPEED * Gdx.graphics.getDeltaTime();
-	//	Gdx.gl.glClearColor(0.741f, 0.874f, 0.976f, 1);
-	//	Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
-	//batch.draw(dzialo,350,100);
-		//batch.draw(dzialo, speed, speed);
-		enemy.draw(batch);
+
+		batch.draw(background,-12.5f,-12.5f);
+		for (BaseEnemy enemy : enemies){
+			enemy.draw(batch);
+		}
 		tower.draw(batch);
 
-		//batch.draw(img, 0, 0);
 		batch.end();
 
-
+		if(Gdx.input.isKeyPressed(Input.Keys.SPACE))
+			addEnemy(new BaseEnemy());
 	}
 	@Override
 	public void dispose () {
 		batch.dispose();
-		img.dispose();
-		dzialo.dispose();
 	}
+
+	public void addEnemy(BaseEnemy e)
+	{
+		enemies.add(e);
+	}
+
+	public void removeEnemy(BaseEnemy e)
+	{
+		enemies.remove(e);
+	}
+
 	private void handleMouse() {
 		// implementacja obslugi myszki
 		GridPoint2 mousePosition = getMousePosMappedToScreenPos();
@@ -82,4 +87,6 @@ enemy = new BaseEnemy();
 				600 - 1 - Gdx.input.getY()
 		);
 	}
+
+	float delay = 1; // seconds
 }
