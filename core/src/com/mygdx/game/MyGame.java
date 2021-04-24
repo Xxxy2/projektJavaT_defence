@@ -16,18 +16,14 @@ public class MyGame extends Game {
 	public static final int V_WIDTH = 800;
 	public static final int V_HEIGHT = 600;
 	public static SpriteBatch batch;
-	private static int SPEED = 50;
-	private float speed;
+
 	private GridPoint2 lastMousePosition = new GridPoint2();
 
 	Texture background;
 
-	int x=50;
-	int y=50;
 
-	public static List<BaseEnemy> enemies = new ArrayList<BaseEnemy>();
+	public static List<BaseEnemy> enemies = new ArrayList<>();
 
-	//private BaseEnemy enemy;
 	private Tower tower;
 
 	@Override
@@ -78,6 +74,8 @@ public class MyGame extends Game {
 		// implementacja obslugi myszki
 		GridPoint2 mousePosition = getMousePosMappedToScreenPos();
 		if (Gdx.input.isButtonJustPressed(Input.Buttons.LEFT)) {
+
+			// to do
 		}
 	}
 

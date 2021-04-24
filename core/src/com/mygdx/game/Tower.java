@@ -15,7 +15,7 @@ public class Tower {
     private GridPoint2 positionOnScreen;
     private GridPoint2 positionInPuzzle;
     public Tower() {
-        dzialo = new Texture("duszek.png");
+        dzialo = new Texture("dzialo.jpg");
     }
 
 
