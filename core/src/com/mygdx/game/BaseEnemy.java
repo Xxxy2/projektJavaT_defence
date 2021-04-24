@@ -6,42 +6,22 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class BaseEnemy {
     Texture duch;
+    EnemyMoving enemyMoving;
+
     private static int SPEED = 50;
     private float speed;
+    private float dmg;
+    private float hp;
     private float ManaBurn;
-    private MyGame game;
-
-
-
 
     public BaseEnemy(){
         duch = new Texture("duszek.png");
-//move();
+        enemyMoving = new EnemyMoving();
+
     }
+
     void draw(SpriteBatch batch) {
-
-        batch.draw(duch, 250, 250);
+        enemyMoving.MoveEnemy();
+        batch.draw(duch, enemyMoving.GetXPos(), enemyMoving.GetYPos());   //Aktualizowanie pozycji przeciwnika
     }
-
-
-    void spawn(){
-
-        game.batch.begin();
-        game.batch.draw(duch,200,200);
-        game.batch.end();
-
-    }
-
-
-void move(SpriteBatch batch ){
-    System.out.println(Gdx.graphics.getDeltaTime());
-    speed = speed + SPEED * Gdx.graphics.getDeltaTime();
-
-
-
-
-}
-
-
-
 }

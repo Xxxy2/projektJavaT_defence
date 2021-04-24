@@ -17,13 +17,12 @@ public class PlayScreen implements Screen {
     private Viewport gameport;
     private Hud hud;
 
-    BaseEnemy enemy = new BaseEnemy();
     public PlayScreen(MyGame game){
-        this.game = game;
-gamecam = new OrthographicCamera();
-gameport = new FitViewport(MyGame.V_WIDTH,MyGame.V_HEIGHT,gamecam);
+    this.game = game;
+    gamecam = new OrthographicCamera();
+    gameport = new FitViewport(MyGame.V_WIDTH,MyGame.V_HEIGHT,gamecam);
 
-hud = new Hud(game.batch);
+    hud = new Hud(game.batch);
 }
     @Override
     public void show() {
@@ -34,7 +33,7 @@ hud = new Hud(game.batch);
     public void render(float delta) {
         Gdx.gl.glClearColor(0.741f, 0.874f, 0.976f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
+        hud.AktualizujTekst(game.batch);
 
 
 
@@ -68,4 +67,6 @@ gameport.update(width, height);
     public void dispose() {
 
     }
+
+
 }
