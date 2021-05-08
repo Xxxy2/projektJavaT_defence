@@ -8,8 +8,7 @@ public class BaseEnemy {
     Texture duch;
     EnemyMoving enemyMoving;
 
-    private static int SPEED = 50;
-    private float speed;
+    protected static float SPEED = 1;
     private float dmg;
     private float hp;
     private float ManaBurn;
@@ -22,6 +21,6 @@ public class BaseEnemy {
 
     void draw(SpriteBatch batch) {
         enemyMoving.MoveEnemy();
-        batch.draw(duch, enemyMoving.GetXPos(), enemyMoving.GetYPos());   //Aktualizowanie pozycji przeciwnika
+        batch.draw(duch, (enemyMoving.GetXPos()* SPEED), (enemyMoving.GetYPos()*SPEED));   //Aktualizowanie pozycji przeciwnika
     }
 }

@@ -21,7 +21,7 @@ public class Tower {
 
     void draw(SpriteBatch batch) {
 
-        batch.draw(dzialo, 50, 100);
+        batch.draw(dzialo, 150, 100);
         //batch.draw(pieceImg, positionOnScreen.x, positionOnScreen.y);
     }
     boolean isMouseIn(GridPoint2 mousePos) {

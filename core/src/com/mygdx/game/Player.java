@@ -25,10 +25,17 @@ public class Player {
         this.money = money;
     }
 
+    public void setHp(Integer hp) {
+        this.hp = hp;
+    }
+
+    public Integer getHp() {
+        return hp;
+    }
     private Integer mobCounter;
     private  Integer score;
     private  Integer money;
-
+    private  Integer hp;
 
 
 }

@@ -25,6 +25,7 @@ public class MyGame extends Game {
 	public static List<BaseEnemy> enemies = new ArrayList<>();
 
 	private Tower tower;
+private Gate orb;
 
 	@Override
 	public void create () {
@@ -32,6 +33,7 @@ public class MyGame extends Game {
 		background = new Texture("background.png");
 
 	tower = new Tower();
+	orb = new Gate();
 	batch = new SpriteBatch();
 
 	setScreen( new PlayScreen(this));
@@ -49,7 +51,7 @@ public class MyGame extends Game {
 			enemy.draw(batch);
 		}
 		tower.draw(batch);
-
+orb.draw(batch);
 		batch.end();
 
 		if(Gdx.input.isKeyPressed(Input.Keys.SPACE))
