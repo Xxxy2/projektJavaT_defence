@@ -22,7 +22,12 @@ private Viewport viewport;
 private Integer mobCounter;
 private  Integer score;
 private  Integer money;
-private Integer hp;
+
+    public void addHp(Integer hp) {
+        this.hp=+hp;
+    }
+
+    private Integer hp;
 
 private MyGame ggame;
 
@@ -40,6 +45,7 @@ public Hud(SpriteBatch sb){
     score = 0;
     money = 100;
     hp = 10;
+
 }
 
 public void AktualizujTekst(SpriteBatch sb)

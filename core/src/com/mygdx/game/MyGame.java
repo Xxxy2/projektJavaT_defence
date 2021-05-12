@@ -16,7 +16,7 @@ public class MyGame extends Game {
 	public static final int V_WIDTH = 800;
 	public static final int V_HEIGHT = 600;
 	public static SpriteBatch batch;
-
+private int index =0;
 	private GridPoint2 lastMousePosition = new GridPoint2();
 
 	Texture background;
@@ -54,8 +54,14 @@ private Gate orb;
 orb.draw(batch);
 		batch.end();
 
-		if(Gdx.input.isKeyPressed(Input.Keys.SPACE))
+		if(Gdx.input.isKeyPressed(Input.Keys.SPACE)){
+index++;
+if (index%5==0)
+	addEnemy(new FastEnemy());
+else
 			addEnemy(new BaseEnemy());
+		}
+
 	}
 	@Override
 	public void dispose () {

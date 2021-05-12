@@ -19,6 +19,7 @@ public class BaseEnemy {
 
     }
 
+
     void draw(SpriteBatch batch) {
         enemyMoving.MoveEnemy();
         batch.draw(duch, (enemyMoving.GetXPos()* SPEED), (enemyMoving.GetYPos()*SPEED));   //Aktualizowanie pozycji przeciwnika

@@ -1,6 +1,11 @@
 package com.mygdx.game;
 
+import Scenes.Hud;
+
 public class EnemyMoving {
+
+    private Hud hud;
+    private MyGame game;
         private int pathIndex;    //Określa do którego miejsca ścieżki aktualnie idzie przeciwnik
         private float dirX, dirY;   //Zmienne pomocnicze do sterowania przeciwnikiem w góre w dół i na boki
         private float posX=0, posY=250; //Aktualna pozycja przeciwnika
@@ -41,9 +46,11 @@ public class EnemyMoving {
             //Sprawdzanie czy przeciwnik dotarł do końca ścieżki
             if(pathIndex >= arrLength -1) {
                 //Trzeba dodać odejmowanie życia graczowi
+               hud.addHp(-1);
                 return;
             }
             pathIndex++;
+            System.out.println(pathIndex);
         }
 
         //Ustawienie kierunku chodzenia przeciwnika
