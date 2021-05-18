@@ -27,7 +27,7 @@ private  Integer money;
         this.hp=+hp;
     }
 
-    private Integer hp;
+    private static Integer hp;
 
 private MyGame ggame;
 

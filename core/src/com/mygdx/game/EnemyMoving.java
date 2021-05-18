@@ -1,12 +1,14 @@
 package com.mygdx.game;
 
 import Scenes.Hud;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Rectangle;
 
-public class EnemyMoving {
+public class EnemyMoving extends Rectangle {
 
     private Hud hud;
     private MyGame game;
-        private int pathIndex;    //Określa do którego miejsca ścieżki aktualnie idzie przeciwnik
+        private int pathIndex=12;    //Określa do którego miejsca ścieżki aktualnie idzie przeciwnik
         private float dirX, dirY;   //Zmienne pomocnicze do sterowania przeciwnikiem w góre w dół i na boki
         private float posX=0, posY=250; //Aktualna pozycja przeciwnika
 
@@ -46,7 +48,9 @@ public class EnemyMoving {
             //Sprawdzanie czy przeciwnik dotarł do końca ścieżki
             if(pathIndex >= arrLength -1) {
                 //Trzeba dodać odejmowanie życia graczowi
-               hud.addHp(-1);
+               //hud.addHp(-1);
+                Gdx.app.exit();
+               //game.removeEnemy((BaseEnemy) this);
                 return;
             }
             pathIndex++;

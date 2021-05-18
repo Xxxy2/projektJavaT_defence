@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.GridPoint2;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.math.Rectangle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,8 +57,15 @@ orb.draw(batch);
 
 		if(Gdx.input.isKeyPressed(Input.Keys.SPACE)){
 index++;
-if (index%5==0)
+if (index%5==0) {
 	addEnemy(new FastEnemy());
+	batch.begin();
+	tower.fire(batch,150,150);
+	batch.end();
+	//if(tower.overlaps(enemies )
+
+
+}
 else
 			addEnemy(new BaseEnemy());
 		}
@@ -77,6 +85,11 @@ else
 	{
 		enemies.remove(e);
 	}
+
+
+
+
+
 
 	private void handleMouse() {
 		// implementacja obslugi myszki

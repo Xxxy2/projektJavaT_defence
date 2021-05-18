@@ -3,8 +3,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.GridPoint2;
+import com.badlogic.gdx.math.Rectangle;
 
-public class Tower {
+public class Tower extends Rectangle {
     private int dmg;
     private float RoF;
     public int cost;
@@ -21,9 +22,20 @@ public class Tower {
 
     void draw(SpriteBatch batch) {
 
-        batch.draw(dzialo, 150, 100);
+        batch.draw(dzialo, 65, 100);
         //batch.draw(pieceImg, positionOnScreen.x, positionOnScreen.y);
     }
+
+
+    void fire(SpriteBatch batch, int tx, int ty){
+        Bullet pocisk = new Bullet();
+        pocisk.draw(batch, tx, ty);
+
+    }
+
+
+
+
     boolean isMouseIn(GridPoint2 mousePos) {
         return
                 mousePos.x >= positionOnScreen.x &&

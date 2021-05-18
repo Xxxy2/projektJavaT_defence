@@ -3,10 +3,11 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 
-public class BaseEnemy {
+public class BaseEnemy extends EnemyMoving {
     Texture duch;
-    EnemyMoving enemyMoving;
+   // EnemyMoving enemyMoving;
 
     protected static float SPEED = 1;
     private float dmg;
@@ -15,13 +16,13 @@ public class BaseEnemy {
 
     public BaseEnemy(){
         duch = new Texture("duszek.png");
-        enemyMoving = new EnemyMoving();
+      //  enemyMoving = new EnemyMoving();
 
     }
 
 
     void draw(SpriteBatch batch) {
-        enemyMoving.MoveEnemy();
-        batch.draw(duch, (enemyMoving.GetXPos()* SPEED), (enemyMoving.GetYPos()*SPEED));   //Aktualizowanie pozycji przeciwnika
+        MoveEnemy();
+        batch.draw(duch, (GetXPos()* SPEED), (GetYPos()*SPEED));   //Aktualizowanie pozycji przeciwnika
     }
 }
