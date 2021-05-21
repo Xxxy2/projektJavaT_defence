@@ -11,9 +11,6 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.MyGame;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
-
-
-
 public class Hud {
 public Stage stage;
 private Viewport viewport;
@@ -23,13 +20,14 @@ private Integer mobCounter;
 private  Integer score;
 private  Integer money;
 
-    public void addHp(Integer hp) {
-        this.hp=+hp;
+    public static void addHp(int h) {
+        if(hp > 0)
+        hp+=h;
     }
 
-    private static Integer hp;
+    public static int hp = 10;
 
-private MyGame ggame;
+private MyGame game;
 
 Label mobCounterLabel;
 Label scoreValueLabel;
@@ -39,9 +37,8 @@ Label scoreLabel;
 Label mobLeft;
 Label moneyLeft;
 Label hpLeft;
-public Hud(SpriteBatch sb){
-  //  ggame = new MyGame();
-    mobCounter = ggame.enemies.size();
+public Hud(){
+    mobCounter = game.enemies.size();
     score = 0;
     money = 100;
     hp = 10;
@@ -50,7 +47,7 @@ public Hud(SpriteBatch sb){
 
 public void AktualizujTekst(SpriteBatch sb)
 {
-    mobCounter = ggame.enemies.size();
+    mobCounter = game.enemies.size();
 
     viewport = new FitViewport(MyGame.V_WIDTH,MyGame.V_HEIGHT,new OrthographicCamera());
     stage = new Stage(viewport,sb);

@@ -5,16 +5,19 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 
 public class EnemyMoving extends Rectangle {
-
-    private Hud hud;
-    private MyGame game;
-        private int pathIndex=12;    //Określa do którego miejsca ścieżki aktualnie idzie przeciwnik
+/*
+    private MyGame game = new MyGame();
+        private int pathIndex=0;    //Określa do którego miejsca ścieżki aktualnie idzie przeciwnik
         private float dirX, dirY;   //Zmienne pomocnicze do sterowania przeciwnikiem w góre w dół i na boki
-        private float posX=0, posY=250; //Aktualna pozycja przeciwnika
+        //private float posX=0, posY=250; //Aktualna pozycja przeciwnika
+
+
 
         //Określenie położenia punktów do których dochodzi przeciwnik
         private float[] pathX = {0,0,100,100,0,0,200,200,350,350,450,450,250,250,550,550};
         private float[] pathY = {250,50,50,350,350,450,450,350,350,400,400,250,250,100,100,400};
+
+    private float posX=pathX[13], posY=pathY[13]; //TYMCZASOWE
 
     //private float[] pathX = {750,100,50,50,300,300,200,200,300,300,200,200,350,350};
     //private float[] pathY = {500,100,100,200,200,150,150,100,100,50,50,0,0,250};
@@ -23,7 +26,7 @@ public class EnemyMoving extends Rectangle {
 
         public EnemyMoving() {
             arrLength = pathX.length;
-            pathIndex = 0;
+            pathIndex = 14;
         }
 
         public void MoveEnemy(){
@@ -47,14 +50,11 @@ public class EnemyMoving extends Rectangle {
         private void SetNextWaypoint() {
             //Sprawdzanie czy przeciwnik dotarł do końca ścieżki
             if(pathIndex >= arrLength -1) {
-                //Trzeba dodać odejmowanie życia graczowi
-               //hud.addHp(-1);
-                Gdx.app.exit();
-               //game.removeEnemy((BaseEnemy) this);
+                Hud.addHp(-1);  //Odejmowanie życia graczowi
+                //MyGame.removeEnemy((BaseEnemy) this);
                 return;
             }
             pathIndex++;
-            System.out.println(pathIndex);
         }
 
         //Ustawienie kierunku chodzenia przeciwnika
@@ -87,5 +87,5 @@ public class EnemyMoving extends Rectangle {
         }
         public float GetYPos() {
             return posY;
-        }
+        }*/
 }

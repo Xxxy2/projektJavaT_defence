@@ -22,7 +22,7 @@ public class PlayScreen implements Screen {
     gamecam = new OrthographicCamera();
     gameport = new FitViewport(MyGame.V_WIDTH,MyGame.V_HEIGHT,gamecam);
 
-    hud = new Hud(game.batch);
+    hud = new Hud();
 }
     @Override
     public void show() {

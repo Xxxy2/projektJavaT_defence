@@ -1,5 +1,6 @@
 package com.mygdx.game;
 
+import Scenes.Hud;
 import Screens.PlayScreen;
 
 import com.badlogic.gdx.Game;
@@ -10,8 +11,9 @@ import com.badlogic.gdx.math.GridPoint2;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Rectangle;
 
-import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ArrayList;
 
 public class MyGame extends Game {
 	public static final int V_WIDTH = 800;
@@ -24,6 +26,7 @@ private int index =0;
 
 
 	public static List<BaseEnemy> enemies = new ArrayList<>();
+	Iterator<BaseEnemy> itr;
 
 	private Tower tower;
 private Gate orb;
@@ -48,8 +51,15 @@ private Gate orb;
 		batch.begin();
 
 		batch.draw(background,-12.5f,-12.5f);
-		for (BaseEnemy enemy : enemies){
+
+		itr = enemies.iterator();
+		while (itr.hasNext()){
+			BaseEnemy enemy = itr.next();
 			enemy.draw(batch);
+			if(!enemy.isAlive)
+			{
+				itr.remove();
+			}
 		}
 		tower.draw(batch);
 orb.draw(batch);
@@ -60,11 +70,9 @@ index++;
 if (index%5==0) {
 	addEnemy(new FastEnemy());
 	batch.begin();
-	tower.fire(batch,150,150);
+	//tower.fire(batch,150,150);
 	batch.end();
 	//if(tower.overlaps(enemies )
-
-
 }
 else
 			addEnemy(new BaseEnemy());
@@ -79,11 +87,6 @@ else
 	public void addEnemy(BaseEnemy e)
 	{
 		enemies.add(e);
-	}
-
-	public void removeEnemy(BaseEnemy e)
-	{
-		enemies.remove(e);
 	}
 
 
