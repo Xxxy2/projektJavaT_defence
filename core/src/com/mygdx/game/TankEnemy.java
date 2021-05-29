@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class TankEnemy extends BaseEnemy{
     public TankEnemy(){
-        duch = new Texture("duszek2.png");
+        duch = new Texture("mucha_lvl3.png");
         SPEED = 1f;
         dmg = 3;
         hp = 10;

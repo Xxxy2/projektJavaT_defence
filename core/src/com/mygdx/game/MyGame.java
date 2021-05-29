@@ -30,6 +30,13 @@ private int index =0;
 
 	private Tower tower;
 private Gate orb;
+	public BaseEnemy ob0;
+	public BaseEnemy ob1;
+	public BaseEnemy ob2;
+	public BaseEnemy ob3;
+	public BaseEnemy ob4;
+	public BaseEnemy ob5;
+	public BaseEnemy ob6;
 
 	@Override
 	public void create () {
@@ -39,6 +46,13 @@ private Gate orb;
 	tower = new Tower();
 	orb = new Gate();
 	batch = new SpriteBatch();
+	ob0 = new BaseEnemy();
+	ob1 = new BaseEnemy();
+	ob2 = new BaseEnemy();
+	ob3 = new BaseEnemy();
+	ob4 = new BaseEnemy();
+	ob5 = new BaseEnemy();
+	ob6 = new BaseEnemy();
 
 	setScreen( new PlayScreen(this));
 	}
@@ -67,6 +81,41 @@ orb.draw(batch);
 
 		if(Gdx.input.isKeyPressed(Input.Keys.SPACE)){
 index++;
+	/*		batch.begin();
+switch (index) {
+	case 0:
+		ob0.draw(batch);
+		break;
+	case 1:
+		ob1.draw(batch);
+		break;
+	case 2:
+		ob2.draw(batch);
+		break;
+	case 3:
+		ob3.draw(batch);
+		break;
+	case 4:
+		ob4.draw(batch);
+		break;
+	case 5:
+		ob5.draw(batch);
+		break;
+	case 6:
+		ob6.draw(batch);
+		break;
+
+}
+batch.end();
+
+*/
+
+
+
+
+
+
+///*
 
 			if (index%3==0) {
 				addEnemy(new FastEnemy());
@@ -85,6 +134,8 @@ else if (index%5==0) {
 }
 else
 			addEnemy(new BaseEnemy());
+		//	*/
+
 		}
 
 	}

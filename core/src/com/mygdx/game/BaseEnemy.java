@@ -28,20 +28,27 @@ public class BaseEnemy extends Rectangle {
    // EnemyMoving enemyMoving;
 
     protected float SPEED = 1;
+
+
+
     protected int dmg = 1;
     protected float hp;
     private float ManaBurn;
 
     public BaseEnemy(){
-        duch = new Texture("duszek.png");
-      //  enemyMoving = new EnemyMoving();
+        duch = new Texture("pieciornica_lvl1.png");
 
+    }
+
+    public void setDmg(int dmg) {
+        this.dmg += dmg;
     }
 
     void draw(SpriteBatch batch) {
         MoveEnemy();
         batch.draw(duch, (GetXPos()* SPEED), (GetYPos()*SPEED));   //Aktualizowanie pozycji przeciwnika
     }
+
 
     public void MoveEnemy(){
 
@@ -66,7 +73,12 @@ public class BaseEnemy extends Rectangle {
         if(pathIndex >= arrLength -1) {
             if(isAlive) {
                 Hud.addHp(-dmg);  //Odejmowanie życia graczowi
+                setDmg(1);
                 isAlive = false;
+                pathIndex =0;
+                posX = 0;
+                posY = 250;
+                isAlive = true;
                 if(Hud.getHp()<=0) Gdx.app.exit();
             }
             //MyGame.enemies.remove();

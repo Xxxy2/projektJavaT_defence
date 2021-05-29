@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class FastEnemy extends  BaseEnemy{
     public FastEnemy(){
-        duch = new Texture("duszek2.png");
+        duch = new Texture("knox_lvl2.png");
         SPEED = 1;
         dmg = 2;
         hp = 3;
