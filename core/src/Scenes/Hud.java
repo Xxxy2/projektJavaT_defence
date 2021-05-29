@@ -49,7 +49,7 @@ public void AktualizujTekst(SpriteBatch sb)
 {
     mobCounter = game.enemies.size();
 
-    viewport = new FitViewport(MyGame.V_WIDTH,MyGame.V_HEIGHT,new OrthographicCamera());
+    viewport = new FitViewport(game.V_WIDTH,game.V_HEIGHT,new OrthographicCamera());
     stage = new Stage(viewport,sb);
     Table table = new Table();
     table.top();

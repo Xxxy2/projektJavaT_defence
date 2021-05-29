@@ -10,6 +10,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.GridPoint2;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 
 import java.util.Iterator;
 import java.util.List;
@@ -19,28 +22,37 @@ public class MyGame extends Game {
 	public static final int V_WIDTH = 800;
 	public static final int V_HEIGHT = 600;
 	public static SpriteBatch batch;
-private int index =0;
+
+	private int index =0;
 	private GridPoint2 lastMousePosition = new GridPoint2();
 
+	//Tekstura tła
 	Texture background;
 
+	//Zmienna do odmierzania czasu
+	private float timeHelper = 0;
 
+	//Lista przeciwników i iterator do usuwania przeciwników z ekranu
 	public static List<BaseEnemy> enemies = new ArrayList<>();
 	Iterator<BaseEnemy> itr;
 
 	private Tower tower;
-private Gate orb;
+	private Gate orb;
+
+	Vector3 mousePosition;
 
 	@Override
 	public void create () {
 
+
+		batch = new SpriteBatch();
+
+		tower = new Tower();
+		orb = new Gate();
+
 		background = new Texture("background.png");
 
-	tower = new Tower();
-	orb = new Gate();
-	batch = new SpriteBatch();
-
-	setScreen( new PlayScreen(this));
+		setScreen( new PlayScreen(this));
 	}
 
 	@Override
@@ -50,34 +62,41 @@ private Gate orb;
 
 		batch.begin();
 
-		batch.draw(background,-12.5f,-12.5f);
+		batch.draw(background, -12.5f, -12.5f);
 
 		itr = enemies.iterator();
-		while (itr.hasNext()){
+		while (itr.hasNext()) {
 			BaseEnemy enemy = itr.next();
 			enemy.draw(batch);
-			if(!enemy.isAlive)
-			{
+			if (!enemy.isAlive) {
 				itr.remove();
 			}
 		}
-		tower.draw(batch);
-orb.draw(batch);
-		batch.end();
 
-		if(Gdx.input.isKeyPressed(Input.Keys.SPACE)){
-index++;
-if (index%5==0) {
-	addEnemy(new FastEnemy());
-	batch.begin();
-	//tower.fire(batch,150,150);
-	batch.end();
-	//if(tower.overlaps(enemies )
-}
-else
-			addEnemy(new BaseEnemy());
+		tower.draw(batch);
+		//orb.draw(batch);
+
+
+
+
+		timeHelper += Gdx.graphics.getDeltaTime(); //Inkrementacja mierzonego czasu
+		if (timeHelper >= 3) {
+			index++;
+			if (index % 5 == 0) {
+				addEnemy(new FastEnemy());
+			} else
+				addEnemy(new BaseEnemy());
+			timeHelper = 0;
 		}
 
+		mousePosition = getMousePosMappedToScreenPos();
+		if (Gdx.input.isButtonJustPressed(Input.Buttons.LEFT)) {
+			Bullet bullet = new Bullet();
+			bullet.draw(batch, (int)mousePosition.x,(int)mousePosition.y);
+			//gamecam.project(mousePosition);
+			System.out.println(mousePosition);
+		}
+		batch.end();
 	}
 	@Override
 	public void dispose () {
@@ -91,24 +110,13 @@ else
 
 
 
+	float delay = 1; // seconds
 
-
-
-	private void handleMouse() {
-		// implementacja obslugi myszki
-		GridPoint2 mousePosition = getMousePosMappedToScreenPos();
-		if (Gdx.input.isButtonJustPressed(Input.Buttons.LEFT)) {
-
-			// to do
-		}
-	}
-
-	private GridPoint2 getMousePosMappedToScreenPos() {
-		return new GridPoint2(
+	private Vector3 getMousePosMappedToScreenPos() {
+		return new Vector3(
 				Gdx.input.getX(),
-				600 - 1 - Gdx.input.getY()
+				600 - 1 - Gdx.input.getY(),
+				0
 		);
 	}
-
-	float delay = 1; // seconds
 }

@@ -7,7 +7,9 @@ import com.mygdx.game.MyGame;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-
+		config.height = 600;
+		config.width = 800;
+		config.resizable = true;
 
 		config.title = "Projekt Java Tower Defence";
 

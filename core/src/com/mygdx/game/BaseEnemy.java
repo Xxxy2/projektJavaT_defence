@@ -27,9 +27,9 @@ public class BaseEnemy {
     Texture duch;
    // EnemyMoving enemyMoving;
 
-    protected static float SPEED = 1;
-    private float dmg;
-    private float hp;
+    protected float SPEED = 1;
+    protected float dmg;
+    protected float hp;
     private float ManaBurn;
 
     public BaseEnemy(){
