@@ -6,10 +6,10 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
-public class BaseEnemy {
+public class BaseEnemy extends Rectangle {
     public boolean isAlive = true;
 
-    private int pathIndex=0;    //Określa do którego miejsca ścieżki aktualnie idzie przeciwnik
+    private int pathIndex=14;    //Określa do którego miejsca ścieżki aktualnie idzie przeciwnik
     private float dirX, dirY;   //Zmienne pomocnicze do sterowania przeciwnikiem w góre w dół i na boki
     //private float posX=0, posY=250; //Aktualna pozycja przeciwnika
 
@@ -28,7 +28,7 @@ public class BaseEnemy {
    // EnemyMoving enemyMoving;
 
     protected float SPEED = 1;
-    protected float dmg;
+    protected int dmg = 1;
     protected float hp;
     private float ManaBurn;
 
@@ -65,8 +65,9 @@ public class BaseEnemy {
         //Sprawdzanie czy przeciwnik dotarł do końca ścieżki
         if(pathIndex >= arrLength -1) {
             if(isAlive) {
-                Hud.addHp(-1);  //Odejmowanie życia graczowi
+                Hud.addHp(-dmg);  //Odejmowanie życia graczowi
                 isAlive = false;
+                if(Hud.getHp()<=0) Gdx.app.exit();
             }
             //MyGame.enemies.remove();
             return;

@@ -17,12 +17,29 @@ private Viewport viewport;
 
 //zmienne kasa ilosc mobkow, wynik
 private Integer mobCounter;
-private  Integer score;
+
+
+
+    private static Integer score;
+    public static Integer getScore() {
+        return score;
+    }
+
+    public static void setScore(Integer s) {
+        score += s;
+    }
+
+
 private  Integer money;
 
     public static void addHp(int h) {
         if(hp > 0)
         hp+=h;
+    }
+
+
+    public static int getHp() {
+        return hp;
     }
 
     public static int hp = 10;

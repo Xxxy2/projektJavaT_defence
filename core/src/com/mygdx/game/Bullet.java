@@ -10,6 +10,7 @@ public class Bullet {
         private float RoF;
         public int cost;
         Texture bullet;
+    //EnemyMoving enemyMoving;
 
 
         public Bullet() {

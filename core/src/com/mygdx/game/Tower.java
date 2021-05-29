@@ -9,12 +9,8 @@ public class Tower extends Rectangle {
     private int dmg;
     private float RoF;
     public int cost;
-    Texture dzialo;
+    static Texture  dzialo;
 
-
-    private TextureRegion pieceImg;
-    private GridPoint2 positionOnScreen;
-    private GridPoint2 positionInPuzzle;
     public Tower() {
         dzialo = new Texture("dzialo.jpg");
     }
@@ -25,6 +21,10 @@ public class Tower extends Rectangle {
         batch.draw(dzialo, 65, 100);
         //batch.draw(pieceImg, positionOnScreen.x, positionOnScreen.y);
     }
+    void draw(SpriteBatch batch, int x, int y) {
+
+        batch.draw(dzialo, x, y);
+    }
 
 
     void fire(SpriteBatch batch, int tx, int ty){
@@ -34,7 +34,7 @@ public class Tower extends Rectangle {
     }
 
 
-
+/*
 
     boolean isMouseIn(GridPoint2 mousePos) {
         return
@@ -61,5 +61,11 @@ public class Tower extends Rectangle {
     void snapToGrid() {
         positionOnScreen.set(positionInPuzzle);
     }
+
+    public static Texture getDzialo() {
+        return dzialo;
+    }
+
+    */
 
 }

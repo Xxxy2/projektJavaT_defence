@@ -1,12 +1,14 @@
 package com.mygdx.game;
 
+import Scenes.Hud;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class TankEnemy extends BaseEnemy{
     public TankEnemy(){
         duch = new Texture("duszek2.png");
-        SPEED = 0.5f;
+        SPEED = 1f;
         dmg = 3;
         hp = 10;
     }
