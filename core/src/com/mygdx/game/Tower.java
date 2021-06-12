@@ -1,8 +1,6 @@
 package com.mygdx.game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.GridPoint2;
 import com.badlogic.gdx.math.Rectangle;
 
 public class Tower extends Rectangle {
@@ -12,13 +10,13 @@ public class Tower extends Rectangle {
     static Texture  dzialo;
 
     public Tower() {
-        dzialo = new Texture("dzialo.jpg");
+        dzialo = new Texture("wartownik_lvl1.png");
     }
 
 
     void draw(SpriteBatch batch) {
 
-        batch.draw(dzialo, 65, 100);
+        batch.draw(dzialo, 40, 120);
         //batch.draw(pieceImg, positionOnScreen.x, positionOnScreen.y);
     }
     void draw(SpriteBatch batch, int x, int y) {

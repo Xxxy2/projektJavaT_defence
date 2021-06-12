@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Gate {
 
-    Texture orb = new Texture("orb.bmp");
+    Texture orb = new Texture("zamek.png");
 
 public Gate(){
 
@@ -13,7 +13,7 @@ public Gate(){
 }
     void draw(SpriteBatch batch) {
 
-        batch.draw(orb, 530, 400);
+        batch.draw(orb, 515, 435);
         //batch.draw(pieceImg, positionOnScreen.x, positionOnScreen.y);
     }
 
