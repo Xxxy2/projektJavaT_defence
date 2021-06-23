@@ -27,9 +27,11 @@ private int index =0;
 
 	public static List<BaseEnemy> enemies = new ArrayList<>();
 	Iterator<BaseEnemy> itr;
-
+	private Tower_sus sus;
+    private Tower_gatling gatling;
+	private Tower_sniper sniper;
 	private Tower tower;
-private Gate orb;
+    private Gate orb;
 	public BaseEnemy ob0;
 	public BaseEnemy ob1;
 	public BaseEnemy ob2;
@@ -43,7 +45,10 @@ private Gate orb;
 
 		background = new Texture("background.png");
 
+	sus = new Tower_sus();
+	gatling = new Tower_gatling();
 	tower = new Tower();
+	sniper = new Tower_sniper();
 	orb = new Gate();
 	batch = new SpriteBatch();
 	ob0 = new BaseEnemy();
@@ -76,6 +81,9 @@ private Gate orb;
 			}
 		}
 		tower.draw(batch);
+		sus.draw(batch,500,150);
+		sniper.draw(batch,100,400);
+		gatling.draw(batch,390, 350);
 orb.draw(batch);
 		batch.end();
 
