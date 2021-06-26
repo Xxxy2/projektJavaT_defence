@@ -42,7 +42,7 @@ private  Integer money;
         return hp;
     }
 
-    public static int hp = 10;
+    public static int hp = 20;
 
 private MyGame game;
 
@@ -58,7 +58,7 @@ public Hud(){
     mobCounter = game.enemies.size();
     score = 0;
     money = 100;
-    hp = 10;
+    hp = 20;
 
 }
 

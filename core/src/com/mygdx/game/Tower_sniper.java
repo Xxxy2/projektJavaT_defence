@@ -25,7 +25,6 @@ public class Tower_sniper extends Tower{
         batch.draw(dzialo, x, y);
     }
 
-
     void fire(SpriteBatch batch, int tx, int ty){
         Bullet pocisk = new Bullet();
         pocisk.draw(batch, tx, ty);

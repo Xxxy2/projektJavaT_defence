@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.Rectangle;
 public class BaseEnemy extends Rectangle {
     public boolean isAlive = true;
 
-    private int pathIndex=14;    //Określa do którego miejsca ścieżki aktualnie idzie przeciwnik
+    private int pathIndex=0;    //Określa do którego miejsca ścieżki aktualnie idzie przeciwnik
     private float dirX, dirY;   //Zmienne pomocnicze do sterowania przeciwnikiem w góre w dół i na boki
     //private float posX=0, posY=250; //Aktualna pozycja przeciwnika
 

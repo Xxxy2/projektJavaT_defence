@@ -39,6 +39,7 @@ private int index =0;
 	public BaseEnemy ob4;
 	public BaseEnemy ob5;
 	public BaseEnemy ob6;
+	private float timeHelper;
 
 	@Override
 	public void create () {
@@ -125,25 +126,28 @@ batch.end();
 
 ///*
 
-			if (index%3==0) {
-				addEnemy(new FastEnemy());
-				batch.begin();
-				//tower.fire(batch,150,150);
-				batch.end();
-				//if(tower.overlaps(enemies )
+			timeHelper += Gdx.graphics.getDeltaTime(); //Inkrementacja mierzonego czasu
+			if (timeHelper >= 1) {
+				index++;
+
+
+				if (index % 3 == 0) {
+					addEnemy(new FastEnemy());
+					batch.begin();
+					//tower.fire(batch,150,150);
+					batch.end();
+					//if(tower.overlaps(enemies )
+				} else if (index % 5 == 0) {
+					addEnemy(new TankEnemy());
+					batch.begin();
+					//tower.fire(batch,150,150);
+					batch.end();
+					//if(tower.overlaps(enemies )
+				} else
+					addEnemy(new BaseEnemy());
+				//	*/
+				timeHelper = 0;
 			}
-
-else if (index%5==0) {
-	addEnemy(new TankEnemy());
-	batch.begin();
-	//tower.fire(batch,150,150);
-	batch.end();
-	//if(tower.overlaps(enemies )
-}
-else
-			addEnemy(new BaseEnemy());
-		//	*/
-
 		}
 
 	}
